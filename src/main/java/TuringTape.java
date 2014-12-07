@@ -1,3 +1,5 @@
+import com.google.common.base.Joiner;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -14,6 +16,11 @@ public class TuringTape {
                 return spool.pop();
             }
             return defaultSymbol;
+        }
+
+        @Override
+        public String toString() {
+            return Joiner.on(' ').join(spool);
         }
     }
 
@@ -48,6 +55,6 @@ public class TuringTape {
     
     @Override
     public String toString() {
-        return super.toString();
+        return (leftSpool.toString() + " [" + currentSymbol + "] " + rightSpool).trim();
     }
 }

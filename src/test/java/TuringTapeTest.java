@@ -54,4 +54,23 @@ public class TuringTapeTest {
         tape.moveRight();
         assertThat(tape.getCurrentSymbol(), equalTo("1"));
     }
+
+    @Test
+    public void shouldPrintTapeHeadWithSquareBrackets() {
+        tape.setCurrentSymbol("1");
+        assertThat(tape.toString(), equalTo("[1]"));
+    }
+
+    @Test
+    public void shouldPrintSpoolsIfVisited() {
+        tape.moveLeft();
+        tape.moveLeft();
+        tape.moveRight();
+        tape.moveRight();
+
+        tape.moveRight();
+        tape.moveLeft();
+
+        assertThat(tape.toString(), equalTo("0 0 [0] 0"));
+    }
 }
