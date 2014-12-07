@@ -20,3 +20,5 @@ It would be nice to be able to visualise the current state of the tape. Implemen
 a space-delimited list with the current tape head location wrapped in brackets as follows:
 
 `0 0 1 1 [1] 1 0`
+
+(*hint*: Use `Joiner.on(' ').join(collection)` to join a collection with spaces)
