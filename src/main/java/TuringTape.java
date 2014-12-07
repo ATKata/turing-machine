@@ -32,8 +32,8 @@ public class TuringTape {
         return currentSymbol;
     }
 
-    public void setCurrentSymbol(String currentSymbol) {
-        this.currentSymbol = currentSymbol;
+    public void setCurrentSymbol(String symbol) {
+        this.currentSymbol = symbol;
     }
 
     public void moveRight() {
@@ -44,5 +44,10 @@ public class TuringTape {
     public void moveLeft() {
         rightSpool.put(currentSymbol);
         currentSymbol = leftSpool.get();
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

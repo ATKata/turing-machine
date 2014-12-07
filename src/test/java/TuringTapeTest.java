@@ -1,13 +1,11 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class TuringTapeTest {
-    public static final String DEFAULT_SYMBOL = "0";
+    private static final String DEFAULT_SYMBOL = "0";
 
     private TuringTape tape;
 
