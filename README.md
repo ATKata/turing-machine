@@ -21,4 +21,7 @@ a space-delimited list with the current tape head location wrapped in brackets a
 
 `0 0 1 1 [1] 1 0`
 
-(*hint*: Use `Joiner.on(' ').join(collection)` to join a collection with spaces)
+The list should only display symbols that have been visited by the tape head (otherwise it may
+take a while to execute!)
+
+(*hint*: If required, use `Joiner.on(' ').join(collection)` to join a collection with spaces)
