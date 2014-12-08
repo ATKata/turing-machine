@@ -1,23 +1,43 @@
 public class TuringTape {
 
-    public TuringTape(String defaultSymbol) {
-    }
+	public static final String DEFAULT_SYMBOL = "0";
 
-    public String getCurrentSymbol() {
-        return null;
-    }
+	private StringBuilder tape;
+	private int index;
 
-    public void setCurrentSymbol(String symbol) {
-    }
+	public TuringTape(String initialTape) {
+		tape = new StringBuilder(initialTape);
+		index = 0;
+	}
 
-    public void moveRight() {
-    }
+	public String getCurrentSymbol() {
+		return "" + tape.charAt(index);
+	}
 
-    public void moveLeft() {
-    }
+	public void setCurrentSymbol(String symbol) {
+		tape.replace(index, index + 1, symbol);
+	}
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+	public void moveRight() {
+		index++;
+		if (index == tape.length()) {
+			tape.append(DEFAULT_SYMBOL);
+			index = tape.length() - 1;
+		}
+	}
+
+	public void moveLeft() {
+		index--;
+		if (index < 0) {
+			tape.insert(0, DEFAULT_SYMBOL);
+			index = 0;
+		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder(tape);
+		builder.replace(index, index + 1, "[" + tape.charAt(index) + "]");
+		return builder.toString();
+	}
 }
