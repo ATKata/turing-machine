@@ -65,12 +65,16 @@ public class TuringTapeTest {
     public void shouldPrintSpoolsIfVisited() {
         tape.moveLeft();
         tape.moveLeft();
+        tape.setCurrentSymbol("1");
         tape.moveRight();
         tape.moveRight();
 
         tape.moveRight();
+        tape.moveRight();
+        tape.setCurrentSymbol("2");
+        tape.moveLeft();
         tape.moveLeft();
 
-        assertThat(tape.toString(), equalTo("0 0 [0] 0"));
+        assertThat(tape.toString(), equalTo("1 0 [0] 0 2"));
     }
 }

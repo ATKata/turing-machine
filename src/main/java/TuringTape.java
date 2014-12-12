@@ -1,7 +1,8 @@
 import com.google.common.base.Joiner;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 public class TuringTape {
     private class InfiniteSpool {
@@ -21,6 +22,12 @@ public class TuringTape {
         @Override
         public String toString() {
             return Joiner.on(' ').join(spool);
+        }
+
+        public String reverseToString() {
+            List<String> reversedSpool = new ArrayList<String>(spool);
+            Collections.reverse(reversedSpool);
+            return Joiner.on(' ').join(reversedSpool);
         }
     }
 
@@ -55,6 +62,6 @@ public class TuringTape {
     
     @Override
     public String toString() {
-        return (leftSpool.toString() + " [" + currentSymbol + "] " + rightSpool).trim();
+        return (leftSpool.reverseToString() + " [" + currentSymbol + "] " + rightSpool).trim();
     }
 }
